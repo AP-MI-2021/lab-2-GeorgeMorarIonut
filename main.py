@@ -1,5 +1,5 @@
 
-def isPalindrome(nr):
+def is_palindrome(nr) -> bool:
     """
     Determina daca un numar este palindrom.
     :param nr: nr intreg
@@ -17,9 +17,11 @@ def isPalindrome(nr):
         return True
     return False
 
-assert isPalindrome(12) is False
-assert isPalindrome(121) is True
-assert isPalindrome(12344321) is True
+
+def test_is_palindrome():
+    assert is_palindrome(12) is False
+    assert is_palindrome(121) is True
+    assert is_palindrome(12344321) is True
 
 def isPrime(nr):
     """
@@ -39,7 +41,7 @@ assert isPrime(12) is False
 assert isPrime(2) is True
 assert isPrime(13) is True
 
-def isSuperPrime(nr):
+def is_superprime(nr):
     """
     Determina daca un numar este superprim.
     :param nr: nr intreg
@@ -51,12 +53,14 @@ def isSuperPrime(nr):
         nr = nr // 10
     return True
 
-assert isSuperPrime(233) is True
-assert isSuperPrime(237) is False
-assert isSuperPrime(239) is True
+
+def test_is_superprime():
+    assert is_superprime(233) is True
+    assert is_superprime(237) is False
+    assert is_superprime(239) is True
 
 
-def isAntipalindrome(n) -> bool:
+def is_antipalindrome(n) -> bool:
     l = []
     m = 0
     cn = n
@@ -75,15 +79,17 @@ def isAntipalindrome(n) -> bool:
     return True
 
 
-def testisAntiPalindromeFunction():
-    assert isAntipalindrome(2783) is True
-    assert isAntipalindrome(2773) is False
-    assert isAntipalindrome(12345) is True
+def test_is_antipalindrome():
+    assert is_antipalindrome(2783) is True
+    assert is_antipalindrome(2773) is False
+    assert is_antipalindrome(12345) is True
 
 
 def main():
 
-    testisAntiPalindromeFunction()
+    test_is_superprime()
+    test_is_palindrome()
+    test_is_antipalindrome()
 
     while True:
 
