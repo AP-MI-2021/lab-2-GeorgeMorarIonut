@@ -56,13 +56,41 @@ assert isSuperPrime(237) is False
 assert isSuperPrime(239) is True
 
 
+def isAntipalindrome(n) -> bool:
+    l = []
+    m = 0
+    cn = n
+    while cn > 0:
+        l.append(cn % 10)
+        m = m + 1
+        cn = cn // 10
+    if m % 2 == 1:
+        for i in range(0, m // 2 ):
+            if l[i] == l[m - i - 1]:
+                return False
+    else:
+        for i in range(0, m // 2):
+            if l[i] == l[m - i - 1]:
+                return False
+    return True
+
+
+def testisAntiPalindromeFunction():
+    assert isAntipalindrome(2783) is True
+    assert isAntipalindrome(2773) is False
+    assert isAntipalindrome(12345) is True
+
+
 def main():
+
+    testisAntiPalindromeFunction()
 
     while True:
 
         print("1.Determinat daca un numar este palindrom.")
         print("2.Determinati daca un numar este super prim.")
-        print("3.Iesire")
+        print("3.Determinati daca un numar este antipalindrom.")
+        print("4.Iesire")
 
         optiune = input("Selectati optiune: ")
 
@@ -73,6 +101,9 @@ def main():
             nr2 = int(input("Introduceti numar: "))
             print(isSuperPrime(nr2))
         elif optiune == "3":
+            nr3 = int(input("Introduceti numar: "))
+            print(isAntipalindrome(nr3))
+        elif optiune == "4":
             break
         else:
             print("Optiune gresita! Va rugam selectati alta optiune.")
